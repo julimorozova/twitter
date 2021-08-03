@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <title>Dream</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="container">
+  <div class="logo"><img src="logo.png" alt=""></div>
+  <div class="title">Регистрация в #</div>
+  <form method="POST" action="/login" class="form">
+    <div class="form__auto form__input">
+      <input type="text" name="firstname" placeholder="Введите имя..." id="firstname">
+      <input type="text" name="lastname" placeholder="Введите фамилию..." id="lastname">
+    </div>
+    <div class="form__auto form__input"><input type="text" name="username" placeholder="Введите email..." id="username"></div>
+    <div class="form__auto form__input"><input type="password" name="password" placeholder="Введите пароль..." id="password"/>
+    </div>
+    <div class="form__btn form__input"><input type="submit" value="Зарегистрироваться"/></div>
+  </form>
+  <div class="forgot">
+    <div class="forgot__link"><a href="#">Забыли пароль?</a></div>
+    <div class="forgot__link"><a href="login.html">Уже есть профиль? Войти</a></div>
+  </div>
+</div>
+<!--<script src="app.js"></script>-->
+</body>
+</html>
