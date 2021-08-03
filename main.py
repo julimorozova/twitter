@@ -5,8 +5,11 @@ import base64
 from fastapi import FastAPI, Form, Cookie
 from fastapi.responses import Response
 from typing import Optional
+from fastapi.staticfiles import StaticFiles
+
 
 app = FastAPI()
+app.mount("/templates", StaticFiles(directory="templates"), name="templates")
 
 
 database = {
@@ -34,7 +37,6 @@ def get_username_from_signed_data(data: str) -> Optional[str]:
     try:
         username_base64, sign = data.split('.')
         username = base64.b64decode(username_base64.encode()).decode()
-        # print(f"get_username_from_signed_data: {username}")
         valid_sign = sign_data(username)
     except Exception:
         return None
@@ -78,3 +80,12 @@ def process_login_page(username: str = Form(...), password: str = Form(...)):
     username_signed = base64.b64encode(username.encode()).decode() + "." + sign_data(username)
     response.set_cookie(key="username", value=username_signed)
     return response
+
+
+# @app.get("/templates/style.css")
+# def index_page():
+#     with open("templates/style.css", "r") as fd:
+#         css_login_page = fd.read().encode()
+#
+#     return Response(css_login_page, media_type="text/css")
+
