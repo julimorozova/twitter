@@ -1,28 +1,25 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Личный кабинет</title>
+    <title>Dream</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<div class="container">
-    <div class="logo"><img src="logo.png" alt=""></div>
-
-    <div class="title">Войти в #</div>
-    <form method="POST" action="/login" class="form">
-        <div class="form__auto form__input"><input type="text" name="username" placeholder="Введите email..."></div>
-        <div class="form__auto form__input"><input type="password" name="password" placeholder="Введите пароль..."/>
+    <div class="container">
+        <div class="logo"><img src="logo.png" alt=""></div>
+        <div class="title">Войти в #</div>
+        <form method="POST" action="/login" class="form">
+            <div class="form__auto form__input"><input type="text" name="username" placeholder="Введите email..."></div>
+            <div class="form__auto form__input"><input type="password" name="password" placeholder="Введите пароль..."/>
+            </div>
+            <div class="form__btn form__input"><input type="submit" value="Войти"/></div>
+        </form>
+        <div class="forgot">
+            <div class="forgot__link"><a href="#">Забыли пароль?</a></div>
+            <div class="forgot__link"><a href="#">Зарегистрироваться</a></div>
         </div>
-        <div class="form__btn form__input"><input type="submit" value="Войти"/></div>
-    </form>
-    <div class="forgot">
-        <div class="forgot__link"><a href="#">Забыли пароль?</a></div>
-        <div class="forgot__link"><a href="#">Зарегистрироваться</a></div>
     </div>
-
-
-</div>
 </body>
 </html>
