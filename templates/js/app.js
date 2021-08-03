@@ -14,7 +14,7 @@ btn.addEventListener('click', (event) => {
 });
 
 async function sendRequestAuthorization(userName, userPassword) {
-    const url = 'https://api.github.com/repos/julimorozova/twitter/commits';
+    const url = '';
 
     const user = {
         name: userName,
@@ -27,8 +27,6 @@ async function sendRequestAuthorization(userName, userPassword) {
         },
         body: JSON.stringify(user)
     });
-    console.log(response)
     let result = await response.json();
-    console.log(result)
-    return result[0].author.login;
+    return result;
 }
