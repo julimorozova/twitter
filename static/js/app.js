@@ -1,14 +1,17 @@
 console.log('Start!');
 
 const btn = document.querySelector('.form__btn input');
-/*const userName = document.querySelector('.form__auto #username');
-const userPassword = document.querySelector('.form__auto #password');*/
+const title = document.querySelector('.title');
+const errorData = document.querySelector('.error_data');
+const userName = document.querySelector('.form__auto #username');
+const userPassword = document.querySelector('.form__auto #password');
 
-btn.addEventListener('click', async function (event)  {
+btn.addEventListener('click',  async function (event) {
     event.preventDefault();
+
     const userName = document.querySelector('.form__auto #username');
     const userPassword = document.querySelector('.form__auto #password');
-    console.log(userName.value, userPassword.value);
+
     let response = await fetch("/login", {
         method: 'POST',
         headers: {
@@ -17,30 +20,25 @@ btn.addEventListener('click', async function (event)  {
         body: `{"username": "${userName.value}", "password": "${userPassword.value}"}`,
     });
     let response_json = await response.json();
+    console.log(response);
+    console.log(response_json);
+    isValidUser(response_json.success);
     if (response_json.success) {
-        console.log("ПОЛУЧИЛОСЬ")
+        console.log("ПОЛУЧИЛОСЬ");
+        document.location.href = response_json.page;
+
     }
-    /*userName.value = '';
-    userPassword.value = '';*/
+    userName.value = '';
+    userPassword.value = '';
 
 });
 
-async function sendRequestAuthorization(userName, userPassword) {
-    const url = '/login';
-    const user = {
-        name: userName,
-        password: userPassword
+function isValidUser(success) {
+    let errorUser = `
+        <p style="color: red;">Неверный логин или пароль</p>
+    `
+    if (!success) {
+        errorData.innerHTML = errorUser;
     }
-    try {
-        let response = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(user)
-        });
-        console.log(response);
-        let json = response.status;
-        console.log('Успех:', json);
-    } catch (error) {
-        console.error('Ошибка:', error);
-    }
-
 }
+
