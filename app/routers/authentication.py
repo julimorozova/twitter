@@ -1,4 +1,4 @@
-from fastapi import Form, Cookie, Response, APIRouter
+from fastapi import Form, Cookie, Response, APIRouter, Body
 
 import base64
 
@@ -11,7 +11,10 @@ router = APIRouter()
 
 
 @router.post("/login")
-def process_login_page(username: str = Form(...), password: str = Form(...)):
+def process_login_page(request_data: dict = Body(...)):
+    username = request_data['username']
+    password = request_data['password']
+
     user = data.database.get(username)
     if not user or not crypto.verify_password(password, user["password"]):
         return Response("Я вас не знаю", media_type="text/html")
