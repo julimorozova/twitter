@@ -1,21 +1,27 @@
 console.log('Start!');
 
 const btn = document.querySelector('.form__btn input');
-const userName = document.querySelector('.form__auto #username').value;
-const userPassword = document.querySelector('.form__auto #password').value;
+/*const userName = document.querySelector('.form__auto #username');
+const userPassword = document.querySelector('.form__auto #password');*/
+
 btn.addEventListener('click', async function (event)  {
     event.preventDefault();
-
+    const userName = document.querySelector('.form__auto #username');
+    const userPassword = document.querySelector('.form__auto #password');
+    console.log(userName.value, userPassword.value);
     let response = await fetch("/login", {
         method: 'POST',
-        body: `{"username": "${userName}", "password": "${userPassword}"`
+        headers: {
+            "content-type": "application/json"
+        },
+        body: `{"username": "${userName.value}", "password": "${userPassword.value}"}`,
     });
     let response_json = await response.json();
     if (response_json.success) {
         console.log("ПОЛУЧИЛОСЬ")
     }
-    userName.value = '';
-    userPassword.value = '';
+    /*userName.value = '';
+    userPassword.value = '';*/
 
 });
 
