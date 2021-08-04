@@ -4,14 +4,14 @@ from typing import Optional
 
 from app.db import data
 from app.internal import crypto
+from app.services.reader import read_file
 
 router = APIRouter()
 
 
 @router.get("/")
 def index_page(username: Optional[str] = Cookie(default=None)):
-    with open("static/html/login.html", "r") as fd:
-        login_page = fd.read().encode()
+    login_page = read_file("static/html/login.html")
 
     # delete invalid cookies
     if not username:
