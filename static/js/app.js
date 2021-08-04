@@ -14,7 +14,7 @@ btn.addEventListener('click', (event) => {
 });
 
 async function sendRequestAuthorization(userName, userPassword) {
-    const url = '';
+    const url = 'http://127.0.0.1:8000/login';
 
     const user = {
         name: userName,
@@ -22,9 +22,7 @@ async function sendRequestAuthorization(userName, userPassword) {
     }
     let response = await fetch(url, {
         method: 'POST',
-        headers: {
 
-        },
         body: JSON.stringify(user)
     });
     let result = await response.json();
