@@ -41,7 +41,7 @@ def process_login_page(request_data: dict = Body(...)):
             json.dumps({
                 "success": True,
                 "message": "I have page",
-                "page": "static/html/userpage.html"
+                "page": "/static/html/userpage.html"
             }),
             media_type="application/json"
         )
