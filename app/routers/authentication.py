@@ -4,7 +4,7 @@ from fastapi import Form, Cookie, Response, APIRouter, Body
 
 import base64
 
-from app.db import data
+from app.db.data import data
 from app.internal import crypto
 from app.services.reader import read_file
 

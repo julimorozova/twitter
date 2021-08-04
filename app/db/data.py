@@ -1,6 +1,12 @@
-database = {
-    "focus": {
-        "name": "kostya",
-        "password": "d8fa8488d7ac553529c7f21ae9a9081713f0e89f28316fb9b1706996ab0f8b7f"
-    }
-}
+class Database:
+    def __init__(self):
+        self.database = dict()
+
+    def push(self, username: str, password: str, name: str):
+        self.database[username] = {"password": password, "name": name}
+
+    def contains(self, username: str) -> bool:
+        return self.database.get(username) is not None
+
+
+data = Database()
