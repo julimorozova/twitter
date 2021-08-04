@@ -94,28 +94,27 @@ body {
     align-items: center;
     list-style-type: none;
     margin: 0;
+    padding: 0;
+    width: 100%;
 }
 .menu_item {
-    margin-bottom: 15px;
-    width: 80%;
-    background-color: ghostwhite;
-    color: #8b61ab;
-   /* padding: 10px 40px;*/
+    width: 100%;
+    background-color: #8b61ab;
     align-self: flex-start;
     box-sizing: border-box;
-    border-radius: 20px;
-}
-.active {
-    align-self: flex-end;
-    border-radius: 20px 0 0 20px;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
 }
 .menu_link {
     display: block;
-    background-color: ghostwhite;
-    color: #8b61ab;
-    width: 100%;
+    color: white;
     text-decoration: none;
-    padding: 10px;
-    border-radius: 20px;
+    padding: 20px;
     text-align: center;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: bold;
+}
+.menu_link:hover {
+    background-color: #5c3778;
 }

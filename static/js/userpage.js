@@ -1,3 +1,4 @@
+/*
 const menuItems = document.querySelectorAll('.menu_item');
 const menu = document.querySelector('.menu_items');
 
@@ -25,3 +26,6 @@ function removeActiveClass() {
         item.classList.remove('active');
     });
 }
+*/
+
+
