@@ -26,8 +26,11 @@ def process_login_page(request_data: dict = Body(...)):
             media_type="application/json"
         )
 
-    user = data.database.get(username)
-    if not user or not crypto.verify_password(password, user["password"]):
+    status = data.check_auth(username=username, password=password)
+
+    print("Current status = ", status)
+    # if not user or not crypto.verify_password(password, user["password"]):
+    if not status:
         return Response(
             json.dumps({
                 "success": False,
