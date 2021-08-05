@@ -12,15 +12,15 @@
         <div class="logo"><img src="/static/img/logo.png" alt=""></div>
         <div class="title">Войти в #</div>
         <form method="POST" action="/login" class="form">
-            <div class="form__auto form__input"><input type="text" name="username" placeholder="Введите email..." id="username"></div>
+            <div class="form__auto form__input"><input type="text" name="username" placeholder="Введите email..." id="username" aria-required="true"></div>
             <div class="form__auto form__input password"><input type="password" name="password" placeholder="Введите пароль..." id="password"/>
             </div>
-            <div class="error_data"></div>
+            <div style="color:red" id="errorData"></div><br>
             <div class="form__btn form__input"><input type="submit" value="Войти"/></div>
         </form>
         <div class="forgot">
             <div class="forgot__link"><a href="#">Забыли пароль?</a></div>
-            <div class="forgot__link"><a href="registration.html">Зарегистрироваться</a></div>
+            <div class="forgot__link"><a href="/static/html/registration.html">Зарегистрироваться</a></div>
         </div>
     </div>
     <script src="/static/js/app.js"></script>
