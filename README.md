@@ -7,7 +7,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-#### Запуск сервера (127.0.0.1:8000)
+#### Запуск сервера (0.0.0.0:7777)
 ```shell
-uvicorn app.main:app --reload
+uvicorn app.main:app --host 0.0.0.0 --port 7777 --reload
 ```

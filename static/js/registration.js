@@ -19,7 +19,7 @@ btn.addEventListener('click',  async function (event) {
         userRepeatPassword: userRepeatPassword.value
     }
     if (validate(user)) {
-        let response = await fetch("/login", {
+        let response = await fetch("/reg", {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
