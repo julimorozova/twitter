@@ -30,8 +30,7 @@ btn.addEventListener('click',  async function (event) {
                 "userLastName": "${userLastName.value}",
                 "userBirthday": "${userBirthday.value}",
                 "username": "${userEmail.value}", 
-                "password": "${userPassword.value}",
-                "repeatPassword": "${userRepeatPassword.value}"
+                "password": "${userPassword.value}"
               }
             `,
         });
@@ -55,8 +54,12 @@ btn.addEventListener('click',  async function (event) {
 function validate(user){
     if (user.userFirstName.length === 0 || user.userLastName.length === 0 || user.userEmail.length === 0 || user.userPassword.length === 0
         || user.userRepeatPassword.length === 0 || user.userBirthday.length === 0){
-        document.querySelector("#errorData").innerHTML="*заполните все поля ввода";
+        document.querySelector("#errorData").innerHTML= "*заполните все поля ввода";
         return false;
+    }
+    if (user.userPassword !== user.userRepeatPassword) {
+        document.querySelector("#errorData").innerHTML= "*пароли не совпадают";
+        return false
     }
     //Проверим содержит ли значение введенное в поле email символы @ и .
     /*let at = user.userEmail.indexOf("@");
@@ -66,6 +69,7 @@ function validate(user){
         document.querySelector("#errorData").innerHTML="*email введен не верно";
         return false;
     }*/
+    document.querySelector("#errorData").innerHTML= "";
     return true;
 }
 
