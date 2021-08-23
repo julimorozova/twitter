@@ -1,31 +1,32 @@
-/*
-const menuItems = document.querySelectorAll('.menu_item');
-const menu = document.querySelector('.menu_items');
+import {loadUserData} from "/static/js/components/loadUserData.js";
 
-menu.addEventListener('click', (event) => {
-    console.log(event)
-    const target = event.target.closest('.menu_item');
-    console.log(target);
-    if (target && target.classList.contains('menu_item')) {
-        menuItems.forEach((item, i) => {
-            if (target === item) {
-                console.log(item)
-                removeActiveClass();
-                addActiveClass(i);
-            }
-        });
+
+const btnCreatePost = document .querySelector('.btn_create_post');
+const postArea = document.querySelector('.user_post');
+const inputPostText = document.querySelector('.input_post');
+const userName = document.querySelectorAll('.js-user_name');
+const userBirthday = document.querySelector('.js-user_birthday');
+
+btnCreatePost.addEventListener('click', (event) => {
+    event.preventDefault();
+    let textPost =  inputPostText.value;
+    console.log(textPost.length)
+    if (textPost.length !== 0) {
+        postArea.style.display = 'block';
+        let post =  `
+        <div class="post">${textPost}</div>
+    `;
+        postArea.insertAdjacentHTML("afterbegin", post);
+        inputPostText.value = '';
     }
 });
 
-function addActiveClass(i = 0) {
-    menuItems[i].classList.add('active');
-}
-
-function removeActiveClass() {
-    menuItems.forEach((item) => {
-        item.classList.remove('active');
+loadUserData().then(user => {
+    console.log(user);
+    userName.forEach(username => {
+        username.innerHTML = `${user.firstName} ${user.lastName}`
     });
-}
-*/
+    userBirthday.innerHTML = user.birthday;
+});
 
 
