@@ -3,25 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Dream</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/userpage.css">
 </head>
 <body>
-<div class="container_user">
-    <div class="user_area">
-        <div class="user_avatar"><img src="/static/img/logo.png" alt=""></div>
-        <div class="user"><h1 class="title_user">Привет,<span class="user_name">user!</span></h1></div>
-        <nav class="user_menu">
-            <ul class="menu_items">
-                <li class="menu_item"><a href="#" class="menu_link">Посты</a></li>
-                <li class="menu_item active"><a href="#" class="menu_link">Друзья</a></li>
-                <li class="menu_item"><a href="#" class="menu_link">Избранное</a></li>
-                <li class="menu_item"><a href="#" class="menu_link">Что-то еще</a></li>
-                <li class="menu_item"><a href="/static/html/login.html" class="menu_link">Выйти</a></li>
-            </ul>
+    <header class="header">
+        <div class="wrapper">
+        <nav class="header_nav">
+            <a href="#">dream</a>
+            <a href="/static/html/login.html" >Выйти</a>
+            <!--<a class="js-user_name" href="#">User_name</a>-->
         </nav>
+        </div>
+    </header>
+    <div class="user">
+        <div class="wrapper">
+            <div class="container_user">
+                <nav class="menu">
+                    <a href="#" class="menu_link">Посты</a>
+                    <a href="#" class="menu_link">Друзья</a>
+                    <a href="#" class="menu_link">Избранное</a>
+                    <a href="#" class="menu_link">Что-то еще</a>
+                    <!--<a href="/static/html/login.html" class="menu_link">Выйти</a>-->
+                </nav>
+                <div class="tape">
+                    <div class="user_avatar">
+                        <img src="/static/img/foto.jpg" alt="фото профиля" />
+                        <!--<input type="file"><input type="submit" value="Загрузить">-->
+                    </div>
+                    <div class="user_bio">
+                        <div>
+                            <h1 class="user_data user_name js-user_name"></h1>
+                            <p class="user_data">Дата рождения: <span class="js-user_birthday">01.01.1970</span></p>
+                        </div>
+                    </div>
+                    <div class="user_friends">
+
+                    </div>
+                    <div class="user_wall">
+                        <input type="text" class="input_post">
+                        <button class="btn_create_post">Добавить пост</button>
+                        <div class="user_post">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <div class="tape"></div>
-    <script src="/static/js/userpage.js"></script>
-</div>
+<script type="module" src="/static/js/userpage.js"></script>
 </body>
 </html>
