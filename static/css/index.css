@@ -1,0 +1,13 @@
+.links {
+    display: flex;
+    margin-top: 20px;
+}
+.btn {
+    display: block;
+    text-decoration: none;
+    background-color: #8b61ab;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 60px;
+    margin-right: 20px;
+}
